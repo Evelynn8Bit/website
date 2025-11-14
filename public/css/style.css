@@ -1,0 +1,881 @@
+:root {
+    --color_white: #FCFBF4;
+    --color_charGray: #0e1111;
+    --color_charGrayLight: #262b2b;
+    --color_yellow: rgb(255,255,0);
+    --color_blueLight: #b2b2ff;
+
+    --color_cyan: rgba(0, 255, 255, .8);
+    --color_magenta: rgba(255, 0, 255, .8);
+    --color_yellow: rgba(255, 255, 0, 0.8);
+}
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    color-scheme: dark;
+}
+*,
+*::before,
+*::after{
+    box-sizing: inherit;
+}
+/* GLOBAL  Styles
+----------------------------------*/
+body {
+    background-color: var(--color_charGray);
+    margin: 0;
+    padding: 0;
+
+    font-family: 'Roboto', sans-serif;
+    
+    font-size: 15px;
+    line-height: 1.5;
+}
+img {
+    width: 300px;
+}
+a.logo {
+    padding: 0;
+ }
+a {
+    color: var(--color_yellow);
+}
+a:hover {
+    text-decoration: none;
+}
+.contentWrap,
+.contentWrapAnimation {
+    max-width: 800px;
+    width: 85%;
+    margin: 0 auto;
+    padding: 60px 0;
+}
+.divider > section{
+    position: relative;
+    padding: 25px 25px;
+    border: 2px solid var(--color_charGray);
+}
+
+h2 {
+    color: rgba(255, 255, 255, 1);
+    font-size: 45px;
+    letter-spacing: -1px;
+    text-shadow: -2px 2px 0px var(--color_charGray),
+                -1px -3px 3px var(--color_yellow),
+                3px 3px 3px var(--color_cyan), 
+                -5px -5px 3px var(--color_magenta);
+    margin: 0;
+    margin-bottom: 20px;
+    -webkit-text-stroke: 1px var(--color_charGray);
+}
+h1 {
+    font-size: 75px;
+    line-height: 1;
+}
+h1, h2{
+    font-family: 'Sedgwick Ave Display', cursive;
+    font-weight: 400;
+    position: relative;
+    z-index: 3;
+    word-spacing: 10px;
+}
+h3 {
+    margin-bottom: 0;
+}
+footer, header {
+    text-align: center;
+}
+
+/* CUSTOM GLOBAL Styles
+--------------------------------- */
+.padding-bottom--none {
+    padding-bottom: none;
+}
+.margin--none {
+    margin: 0;
+}
+.outline--text-stroke {
+    color: transparent;
+    -webkit-text-stroke: 3px #ffffff;
+}
+.outline--text-stroke-bold {
+    color: transparent;
+    -webkit-text-stroke: 3px #ffffff;
+}
+.outline--text-stroke-light {
+    color: transparent;
+    font-size: 55px;
+    -webkit-text-stroke: 2px #ffffff;
+}
+.section__titles {
+    text-transform: uppercase;
+}
+.section__titles h4 {
+    font-size: 3.6rem;
+    margin: 0;
+    line-height: 1;
+    margin-bottom: 5px;
+}
+.section__titles h3{
+    font-size: 1.6rem;
+    font-weight: 300;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+}
+.section__titles p {
+    font-weight: 600;
+    margin: 0;
+}
+.section__paragraph h3 + p{
+    font-weight: 500;
+    text-transform: capitalize;
+}
+.section__paragraph p + h3 {
+    margin-top: 10px;
+    font-weight: bold;
+}
+.flex-center-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* NAV BAR Styles 
+----------------------------------*/
+.heroBlock {
+    height: 600px;
+}
+header{
+    height: 600px;
+    width: 100%;
+    color: var(--color_white);
+    
+    position: fixed;
+    z-index: -3;
+}
+nav {
+    background-color: var(--color_charGray);
+    border-bottom: 1px solid magenta;
+    position: sticky;
+    top: 0px;
+    z-index: 1000;
+}
+nav ul {
+    width: 70%;
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    left: 15%; 
+}
+nav ul li {
+    list-style-type: none;
+}
+nav ul li, nav ul li a{
+    display: inline-block;
+}
+nav ul li a {
+    padding: 15px 20px;
+    text-decoration: none;
+    text-transform: capitalize;
+    position: relative; /* for ::after animation effect */
+}
+.logo {
+    text-decoration: none;
+}
+nav ul li a:not(:last-child){
+    margin-inline: 10px;
+}
+nav ul li a, .nav__list--logo{
+    font-size: 1.7rem;
+}
+.nav__list--logo{
+    height: 100%;
+}
+.nav__list--logo h2 {
+    font-size: 30px;
+    height: 100%;
+    margin-top: 10px; /* can't figure out the spacing issue, so manually did it */
+    white-space: nowrap;
+}
+
+/* ABOUT Styles
+----------------------------------*/
+.aboutMe {
+    color: var(--color_charGray);
+    background-color: var(--color_white);
+}
+.aboutMe h3 {
+    text-align: center;
+}
+.aboutMe ul {
+    display: grid;
+    grid-template-columns: repeat(7,1fr);
+    grid-template-rows: 1fr 1fr;
+
+}
+.aboutMe li {
+    width: 100%;
+    position: relative;
+    text-transform: uppercase;
+    text-align: center;
+    list-style-type: none;
+    font-weight: 700;
+}
+.aboutMe .contentWrap div {
+    background-color: yellow;
+    padding: 20px;
+    margin: auto;
+    position: relative;
+}
+.aboutMe .contentWrap div::before {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    content: "";
+    left: 10px;
+    top: 10px;
+    border: 4px solid var(--color_charGray)
+}
+.aboutMe li::after {
+    width: 75%;
+    height: 100%;
+    position: absolute;
+    display: block;
+    top: 50%;
+    transform: translate(-0, -30%);
+    content: "";
+    border-left: 4px solid var(--color_charGrayLight);
+    border-bottom: 4px solid var(--color_charGray);
+    border-bottom-left-radius: 50vw;
+}
+.aboutMe .contentWrap div p {
+    padding-inline: 40px;
+    font-size: 2rem;
+}
+.aboutMe .contentWrap div:not(:last-child) {
+    margin-bottom: 30px;
+}
+/* PROJECT  Styles
+----------------------------------*/
+.backgroundWall {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: -10;
+    background: url(../images/texture.jpg),  var(--color_white);
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: 50% 50%;
+    filter: brightness(.5);
+}
+.projects {
+    background-color: var(--color_charGray);
+    padding-block: 20px;
+    position: relative;
+}
+
+.projects a {
+    color: var(--color_charGray)
+}
+.projects .btn{
+    background-color: white;
+    padding: 8px;
+    text-decoration: none;
+    display: inline-block;
+    border: 1px solid var(--color_charGray);
+}   
+.projectItem {
+    color: var(--color_charGray);
+    background-color: #b2b2ff;
+    overflow: hidden;
+    margin-bottom: 50px;
+    position: relative;
+}
+.projectItem img {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+}
+.projectItem h3 {
+    margin-top: 0;
+}
+
+/* WORK EXPERIENCE  Styles
+----------------------------------*/
+.workExperience{
+    background-color: var(--color_blueLight);
+}
+section.jobItem { /* Needs higher specificity to override section > divider. Could prob remove, no time though.*/
+    display: grid;
+    padding: 0;
+    grid-template-columns: 1fr 2fr;
+    position: relative;
+    position: relative;
+    border: none;
+}
+.jobDetail {
+    padding-block: 25px;
+    color: var(--color_charGray)
+}
+.jobItem > * {
+    grid-column: 2;
+}
+.jobItem--timeline {
+    width: 100%;
+    height: 100%;
+    grid-column: 1;
+    position: relative;
+}
+.job__bullet-point::before, 
+.job__bullet-point-end::before{
+    width: 2px;
+    content: "";
+    position: absolute;
+    background-color: var(--color_charGray);
+    left: 50%;
+    opacity: .4;
+}
+.job__bullet-point::before {
+    height: 100%;
+}
+.job__bullet-point-end::before {
+    height: 50%;
+}
+.job__bullet-point-start::before {
+    height: 75%;
+}
+.list--style-ping {
+    width: 15px;
+    height: 15px;
+    aspect-ratio: 1;
+    border-radius: 50vh;
+    background-color: var(--color_charGray);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 
+    0px 0px 0px 0px rgba(255, 0, 255, .8),
+    0px 0px 0px 0px rgba(0, 255, 255, .8),
+    0px 0px 0px 4px rgba(255, 255, 0, .8);
+}
+/* EDUCATION Styles
+----------------------------------*/
+.education {
+    background-color: var(--color_white);
+    background-size: cover;
+    background-position: top right;
+    padding-bottom: 100px;
+}
+.educationItem {
+    color: var(--color_charGray);
+    background-color: pink;
+    padding: 25px;
+    margin: auto;
+    
+    position: relative;
+}
+.educationItem::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    transform:scale(1);
+    border: 4px solid var(--color_charGray);
+    pointer-events: none;
+}
+/* CONTACT INFO  Styles
+----------------------------------*/
+footer {
+    background-color: var(--color_charGray);
+    color: var(--color_white);
+}
+.contactList {
+    list-style-type: none;
+    padding: 0;
+}
+.contactList a {
+    padding: 15px;
+    display: inline-block; 
+}
+.animation__ping {
+    animation: ping 1s alternate infinite;
+}
+@keyframes ping {
+    0% {
+    }
+    100% {
+        box-shadow: 
+        0px 0px 0px 6px rgba(255, 0, 255, .5),
+        0px 0px 0px 12px rgba(0, 255, 255, .5),
+        0px 0px 0px 18px rgba(255, 255, 0, .5);
+    }
+}
+
+/* ANIMATION PAGE
+   MAIN GRID SECTION
+----------------------------------*/
+.grid__animation-display {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr 1fr;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+}
+.grid__animation-item {
+    width: 100%;
+    height: 50px;
+    position: relative;
+}
+.grid__animation-display button {
+    font-family: inherit;
+    font-weight: inherit;
+    font-size: inherit;
+    background-color: inherit;
+    border: 1px solid var(--color_yellow);
+    border-radius: 0;
+    cursor: pointer;
+    padding: 10px 15px;
+    transition: transform 200ms 100ms ease-in-out,
+                border-radius 200ms 300ms ease-in,
+                border 200ms 300ms ease-in;
+}
+/* Not exactly  what was stated in the instruction, but I think it looks cool*/
+.grid__animation-display .scale {
+    color: var(--color_yellow);
+    text-shadow: 0 0 3px var(--color_cyan);
+    text-align: center;
+    animation: scale-in 600ms 2s both; 
+}
+.grid__animation-display button:hover {
+    transform: scale(1.2);
+    color: var(--color_yellow);
+    border: 1px solid var(--color_cyan);
+    border-radius: 10px;
+}
+.animation__wrapper {
+    display: flex;
+    justify-content: center; 
+}
+  
+.typing {
+    color: white;
+    font-family: 'Fira Mono', monospace;
+    overflow: hidden; 
+    border-right: .15em solid #CE2D4F; 
+    white-space: nowrap; 
+    animation: typing 3s forwards steps(19),
+    blinking .5s steps(1) infinite;
+}
+.motion {
+    border-left: 2px solid var(--color_cyan);
+    border-right: 2px solid var(--color_cyan);
+    position: relative;
+    cursor: pointer;
+}
+.motion .ball {
+    width: 50px;
+
+    position: absolute;
+    left: 0;
+}
+.motion:hover .ball {
+    animation: roll 3s infinite ease-in-out;
+}
+.flip {
+    perspective: 1000px;
+    transform-style: preserve-3d;
+}
+.flip span {
+    display: inline-block; /* Needs this or it wont work */
+    animation: flipUp 1s ease-in-out both;
+}
+@keyframes flipUp {
+    0% {
+        transform: rotateX(90deg);
+        color: white;
+    }
+    30% {
+        transform: rotateX(180deg)scale(2);
+        color: var(--color_yellow);
+    }
+    85% {
+        transform: rotateX(180deg) scale(2);
+        color: var(--color_yellow);
+    }
+    100% {
+        transform: rotateX(0deg);
+    }
+}
+@keyframes roll {
+    0% {
+        left: 0%;
+        transform: rotate(0deg);
+    }
+    50% {
+        left: calc(100% - 50px);
+        transform: rotate(360deg);
+    }
+    100%{
+       left: 0%;
+       transform: rotate(0deg);
+    }
+}
+@keyframes blinking {
+0%, 100% {
+    border-color: transparent;
+}
+50% {
+    border-color: magenta;
+    }
+}
+@keyframes typing {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 60%; /* I I added a container and it messed up the sizing, not the best way around it */
+    }
+}
+
+@keyframes scale-in {
+    0% {
+        transform: scale(1);
+        text-shadow: 0 0 3px var(--color_cyan);
+    }
+    10% {
+        transform: scale(.01);
+    }
+    50% {
+        transform: scale(.2);
+    }
+    85% {
+        transform: scale(30);
+        text-shadow: 0 0 50px var(--color_cyan);
+    }
+    90% {
+        text-shadow: 0 0 100px var(--color_yellow);
+    }
+    100% {
+        transform: scale(1.2);
+        text-shadow: 0 0 10px var(--color_magenta);
+    }
+}
+.special-animation {
+    font-size: 4rem;
+    color: transparent;
+    -webkit-text-stroke: 1px pink;
+    cursor: pointer;
+    margin: 0;
+}
+.special-animation span {
+    display: inline-block;
+    animation: glow 2s infinite,
+                glowScale 4s cubic-bezier( 0.79, 0.33, 0, 1 ) infinite;
+}
+.special-animation:hover span {
+    animation:  glow 2s infinite,
+    glowScale 4s cubic-bezier( 0.79, 0.33, 0, 1 ) infinite,
+    flipping 1s infinite;
+}
+@keyframes glow {
+    0% {
+        text-shadow: 0px 0px 2px var(--color_magenta);
+    }
+    50% {
+        text-shadow: 0px 0px 10px var(--color_magenta);
+    }
+    100% {
+        text-shadow: 0px 0px 3px var(--color_magenta);
+    }
+}
+@keyframes glowScale {
+    0% {
+        transform: scale(1);
+    }
+    25% {
+        transform: translateY(-10px) scale(1.2);
+    }
+    50% {
+        transform:  translateY(-10px) scale(1.2);
+    }
+    75% {
+        transform: translateY(0px) scale(1);
+    }
+    100% {
+        transform:scale(1);
+    }
+}
+@keyframes flipping {
+    0%, 100%{
+        color: rgba(255, 255, 0,0);
+        text-decoration: none;
+    }
+    50% {
+        color: rgba(255, 255, 0, .7);
+        text-decoration: underline;
+    }
+    75% {
+        color: var(--color_cyan);
+        -webkit-text-stroke: 0px;
+        text-decoration: underline;
+    }
+}
+.grid__animation-item span:nth-child(2){animation-delay: 200ms}
+.grid__animation-item span:nth-child(3){animation-delay: 300ms}
+.grid__animation-item span:nth-child(4){animation-delay: 400ms}
+.grid__animation-item span:nth-child(5){animation-delay: 500ms}
+.grid__animation-item span:nth-child(6){animation-delay: 600ms}
+.grid__animation-item span:nth-child(7){animation-delay: 700ms}
+
+/* RESPONSIVE Styles
+----------------------------------*/
+@media screen and (min-width:750px){
+    .projectItem img{
+        margin-right: 20px;
+        float: left;
+    }
+    .contactList {
+        display: flex;
+        justify-content: center;
+    }
+    
+/* ANIMATIONS Styles
+----------------------------------*/
+/* Trying to learn to use B.E.M naming convention.
+I like the idea of using a different for each css, js and php, idk if thats good practice.  
+Js camelCase, php snack_case, css B.E.M
+*/
+.animation__color-split {
+    transition: box-shadow 200ms ease-in-out, color 200ms ease-in-out;
+}
+.animation__color-split:hover {
+    box-shadow: 4px 4px var(--color_cyan),
+                -4px -4px var(--color_magenta);
+    transition: box-shadow 200ms ease-in-out, color 200ms ease-in-out;
+}
+/* inspiration from GUMROAD for the transition effect, not perfect https://gumroad.com/*/
+.animation__pop-out-yellow,
+.animation__pop-out-dark {
+    transition: box-shadow 300ms ease-in-out, border 300ms ease-in-out, transform 300ms ease-in-out;
+}
+.animation__pop-out-yellow {
+    box-shadow: 0 0 0 0 var(--color_yellow);
+}
+.animation__pop-out-dark {
+    box-shadow: 0 0 0 0 var(--color_charGray)
+}
+.animation__pop-out-yellow:hover {
+    box-shadow: 10px 10px 0 0 var(--color_yellow);
+    transform: translate(-10px, -10px);
+    transition: all 300ms ease-in-out;
+}
+.animation__pop-out-dark:hover {
+    box-shadow: 3px 3px 0 0 var(--color_charGray);
+    transform: translate(-3px, -3px);
+    transition: all 300ms ease-in-out;
+}
+.animation__slice-corners img{
+    border: 2px solid var(--color_charGray);
+    clip-path: polygon(0 0, 0 0, 100% 0, 100% 100%, 100% 100%, 0 100%);
+    transition: clip-path 300ms ease-in-out;
+}
+.animation__slice-corners:hover img{
+    -webkit-clip-path: polygon(0% 15%, 15% 0%, 100% 0, 100% 85%, 85% 100%, 0 100%); 
+    clip-path: polygon(0% 15%, 15% 0%, 100% 0, 100% 85%, 85% 100%, 0 100%);
+    border: 2px solid var(--color_charGray);
+        transition: clip-path 300ms ease-in-out;
+}
+.animation__link--border-bottom li a:not(.logo)::before{
+    content: " ";
+    width: 80%;
+    height: 3px;
+    position: absolute;
+    bottom: 2px;
+    left: 10%;
+    background-color: var(--color_yellow);
+    transition: all 300ms ease-in-out;
+}
+.animation__link--border-bottom li a:not(.logo):hover::before {
+    width: 60%;
+    height: 2px;
+    position: absolute;
+    bottom: 15%;
+    left: 20%;
+    background-color:  rgba(255, 0, 255, .8);
+}
+.animation__link--border-bottom li a:hover {
+    color: var(--color_cyan);
+}
+.animation__link--border-bottom li a:active {
+    color: var(--color_magenta);
+}
+.animation__link--border-bottom li a::before,
+.animation__link--border-bottom li a {
+    transition: all 200ms ease-out;
+}
+}
+@media screen and (max-width: 850px) {
+    .grid__animation-display {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media screen and (max-width: 575px) {
+    .grid__animation-display {
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(6, 1fr);
+    }
+}
+@media screen and (max-width: 749px) {
+    .projectItem {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .projectItem img {
+        width: 400px;
+        height: 266px; 
+    }
+    .projectItem p {
+        width: 45ch;
+    }
+    .projectItem h3 {
+        margin-top: 10px;
+    }
+    h1 {
+        margin-bottom: 20px;
+        font-size: 75px;
+        line-height: 0.9;
+    }
+    h2 {
+        line-height:1;
+    }
+    .contactList a{
+        padding: 5px;
+    }
+    .animation__pop-out-yellow {
+        box-shadow: 10px 10px 0 0 var(--color_yellow);
+        transform: translate(-5px, -5px);
+    }
+    .animation__pop-out-dark {
+        box-shadow: 3px 3px 0 0 var(--color_charGray);
+        transform: translate(-3px, -3px);
+    }
+    .animation__slice-corners img{
+        -webkit-clip-path: polygon(0% 15%, 15% 0%, 100% 0, 100% 85%, 85% 100%, 0 100%); 
+        clip-path: polygon(0% 15%, 15% 0%, 100% 0, 100% 85%, 85% 100%, 0 100%);
+        border: 2px solid var(--color_charGray);
+}
+}
+@media screen and (max-width: 500px) {
+    .projectItem img {
+        width: 300px;
+        height: 200px;
+    }
+    .projectItem p {
+        width: 30ch;
+    }
+    h2 {
+        margin-bottom: 40px;
+    }
+}
+@media screen and (max-width: 1050px) {
+    nav ul{
+       width: 80%;
+       left: 10%;
+    }
+}
+@media screen and (max-width: 950px) {
+    nav ul{
+        width: 90%;
+        left: 5%;
+     }
+     nav ul li a {
+        padding: 20px 5px;
+     }
+}
+@media screen and (min-width: 651px) {
+    
+.animation__title--text-shadow {
+    animation: spotlight 2.5s ease-in-out   forwards running;
+}
+@keyframes spotlight {
+0% {
+    text-shadow: 
+    2px -2px 10px var(--color_charGray),
+    1px 3px 10px var(--color_yellow),
+    -3px 3px 10px var(--color_cyan),
+    5px -5px 10px var(--color_magenta); 
+}
+
+40% {
+    text-shadow: 
+    -6px -8px 10px var(--color_charGray),
+    20px -30px 30px var(--color_yellow),
+    30px 30px 30px var(--color_cyan),
+    -40px  30px 30px var(--color_magenta);
+}
+70% {
+    text-shadow: 
+    -4px -6px 8px var(--color_charGray),
+    -30px -30px 40px var(--color_yellow),
+    -30px 30px 40px var(--color_cyan),
+    -80px  -20px 40px var(--color_magenta);
+
+}
+100% {
+    text-shadow: 
+    -5px -4px 3px var(--color_charGray),
+    15px -15px 20px var(--color_yellow),
+    15px 15px 20px var(--color_cyan),
+    -15px -15px 20px var(--color_magenta);
+    
+}
+}  
+}
+@media screen and (max-width: 650px) {
+    nav {
+        position: relative;
+    }
+    nav ul {
+        display: block;
+    }
+    nav ul li,
+    nav ul li a {
+        display: block;
+        text-align: center;
+    }
+    nav ul li a {
+        padding: 10px;
+    }
+    nav ul li a {
+        border-bottom: 1px solid pink;
+    }
+    a.logo {
+       display: none;
+    }
+    .aboutMe ul {
+        grid-template-columns: repeat(4, 1fr);
+        row-gap: 20px;
+    }
+    .aboutMe ul li {
+        grid-row: auto;
+    }
+    .animation__title--text-shadow {
+        text-shadow: 
+    -5px -4px 3px var(--color_charGray),
+    15px -15px 20px var(--color_yellow),
+    15px 15px 20px var(--color_cyan),
+    -15px -15px 20px var(--color_magenta);
+    }
+}
